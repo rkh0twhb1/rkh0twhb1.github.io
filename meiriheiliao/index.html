@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日黑料大乱斗-黑料大乱斗每日热点_吃瓜爆料合集</title>
+<meta name="description" content="每日黑料大乱斗主题首页，聚合每日热点黑料与吃瓜爆料内容，按话题分区呈现最新爆料合集，提供清晰的浏览入口与内容脉络。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231a1424'/%3E%3Ccircle cx='24' cy='26' r='7' fill='%23ff5c7a'/%3E%3Ccircle cx='42' cy='26' r='7' fill='%23ffc23d'/%3E%3Cpath d='M18 44c4 6 10 9 14 9s10-3 14-9' stroke='%2342e0c8' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#12101a;
+  --bg2:#1a1624;
+  --card:#221d30;
+  --line:#332c46;
+  --txt:#ece8f5;
+  --sub:#a99fc4;
+  --pink:#ff5c7a;
+  --gold:#ffc23d;
+  --teal:#42e0c8;
+  --radius:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--txt);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  line-height:1.8;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px;}
+img,svg{display:block;max-width:100%;}
+
+/* 页头 */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(18,16,26,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;padding:12px 0;flex-wrap:wrap;
+}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;letter-spacing:.5px;}
+.logo .mark{width:38px;height:38px;flex:0 0 38px;}
+.logo span.brand{background:linear-gradient(90deg,var(--pink),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.nav ul{display:flex;gap:6px;list-style:none;flex-wrap:wrap;}
+.nav ul a{
+  display:block;padding:6px 12px;border-radius:999px;
+  font-size:14px;color:var(--sub);transition:.2s;
+}
+.nav ul a:hover{color:var(--txt);background:var(--card);}
+.nav .cta{
+  font-size:14px;font-weight:700;color:#1a1424;
+  background:linear-gradient(90deg,var(--gold),var(--pink));
+  padding:8px 18px;border-radius:999px;
+}
+
+/* 首屏 */
+.hero{
+  position:relative;overflow:hidden;
+  border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(600px 300px at 85% 0%,rgba(255,92,122,.18),transparent 70%),
+    radial-gradient(500px 260px at 10% 20%,rgba(66,224,200,.12),transparent 70%),
+    var(--bg2);
+}
+.hero-inner{
+  display:grid;grid-template-columns:1.15fr .85fr;gap:40px;
+  align-items:center;padding:56px 0 60px;
+}
+.tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;color:var(--teal);
+  border:1px solid rgba(66,224,200,.35);
+  background:rgba(66,224,200,.08);
+  padding:4px 12px;border-radius:999px;margin-bottom:18px;
+}
+.tag i{width:7px;height:7px;border-radius:50%;background:var(--teal);animation:pulse 1.6s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+h1{
+  font-size:clamp(28px,4.4vw,46px);
+  line-height:1.25;font-weight:900;letter-spacing:1px;
+}
+h1 em{font-style:normal;background:linear-gradient(90deg,var(--pink),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.hero p.lead{color:var(--sub);font-size:15px;margin-top:16px;max-width:30em;}
+.hero-actions{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap;}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:11px 24px;border-radius:999px;font-size:15px;font-weight:700;
+  transition:.2s;
+}
+.btn-main{background:linear-gradient(90deg,var(--pink),var(--gold));color:#1a1424;}
+.btn-main:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,92,122,.3);}
+.btn-ghost{border:1px solid var(--line);color:var(--txt);background:var(--card);}
+.btn-ghost:hover{border-color:var(--pink);}
+.btn[aria-disabled="true"]{opacity:.55;}
+.hero-art{position:relative;}
+.hero-art svg{width:100%;height:auto;filter:drop-shadow(0 20px 40px rgba(0,0,0,.5));}
+
+/* 分区通用 */
+section{padding:56px 0;}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:28px;}
+.sec-head h2{font-size:clamp(21px,2.6vw,27px);font-weight:800;letter-spacing:.5px;}
+.sec-head h2::before{
+  content:"";display:inline-block;width:6px;height:20px;border-radius:3px;
+  background:linear-gradient(180deg,var(--pink),var(--gold));
+  margin-right:12px;vertical-align:-3px;
+}
+.sec-head p{color:var(--sub);font-size:14px;}
+
+/* 今日热榜 */
+.grid-hot{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.hot-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px;position:relative;transition:.25s;display:flex;flex-direction:column;
+}
+.hot-card:hover{transform:translateY(-4px);border-color:rgba(255,92,122,.5);}
+.hot-card .rank{
+  position:absolute;top:16px;right:18px;
+  font-size:26px;font-weight:900;color:rgba(255,194,61,.18);font-style:italic;
+}
+.hot-card .k{font-size:12px;color:var(--teal);letter-spacing:1px;margin-bottom:8px;}
+.hot-card h3{font-size:17px;font-weight:800;line-height:1.5;margin-bottom:10px;}
+.hot-card p{font-size:14px;color:var(--sub);flex:1;}
+.hot-card .meta{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-top:16px;padding-top:12px;border-top:1px dashed var(--line);
+  font-size:12px;color:var(--sub);
+}
+.hot-card .meta b{color:var(--pink);font-weight:700;}
+
+/* 黑料速览列表 */
+.split{display:grid;grid-template-columns:1.3fr .7fr;gap:32px;align-items:start;}
+.list{display:flex;flex-direction:column;gap:2px;}
+.item{
+  display:flex;gap:16px;align-items:flex-start;
+  padding:16px 14px;border-radius:12px;transition:.2s;
+  border-bottom:1px solid var(--line);
+}
+.item:hover{background:var(--card);border-color:transparent;}
+.item .no{
+  flex:0 0 34px;height:34px;border-radius:9px;
+  display:grid;place-items:center;font-weight:900;font-size:14px;
+  background:var(--bg2);color:var(--gold);border:1px solid var(--line);
+}
+.item:nth-child(-n+3) .no{background:linear-gradient(135deg,var(--pink),var(--gold));color:#1a1424;border:none;}
+.item .txt h3{font-size:15.5px;font-weight:700;line-height:1.55;}
+.item .txt p{font-size:13px;color:var(--sub);margin-top:4px;}
+.side-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;
+}
+.side-card h3{font-size:16px;font-weight:800;margin-bottom:14px;}
+.chips{display:flex;flex-wrap:wrap;gap:8px;}
+.chips a{
+  font-size:13px;padding:5px 12px;border-radius:999px;
+  background:var(--bg2);border:1px solid var(--line);color:var(--sub);transition:.2s;
+}
+.chips a:hover{color:var(--teal);border-color:var(--teal);}
+.side-note{font-size:13px;color:var(--sub);margin-top:18px;padding-top:16px;border-top:1px dashed var(--line);}
+
+/* 栏目矩阵 */
+.grid-cat{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.cat{
+  background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px;transition:.25s;
+}
+.cat:hover{border-color:var(--gold);transform:translateY(-3px);}
+.cat .ico{width:36px;height:36px;margin-bottom:14px;}
+.cat h3{font-size:16px;font-weight:800;margin-bottom:6px;}
+.cat p{font-size:13px;color:var(--sub);}
+.cat .cnt{
+  display:inline-block;margin-top:12px;font-size:12px;color:var(--pink);
+  border:1px solid rgba(255,92,122,.35);padding:1px 9px;border-radius:999px;
+}
+
+/* 说明正文 */
+.article{
+  background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);
+  padding:34px 34px 30px;
+}
+.article h2{font-size:22px;font-weight:800;margin-bottom:16px;}
+.article h3{font-size:16px;font-weight:800;margin:22px 0 8px;color:var(--gold);}
+.article p{font-size:14.5px;color:#c8c0dd;margin-bottom:10px;}
+.article p strong{color:var(--teal);font-weight:700;}
+
+/* 订阅/操作条 */
+.action-bar{
+  margin-top:36px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  background:linear-gradient(120deg,rgba(255,92,122,.14),rgba(66,224,200,.1));
+  border:1px solid var(--line);border-radius:var(--radius);padding:24px 28px;
+}
+.action-bar h3{font-size:17px;font-weight:800;}
+.action-bar p{font-size:13px;color:var(--sub);margin-top:2px;}
+.action-bar .btns{display:flex;gap:10px;flex-wrap:wrap;}
+
+/* 页尾 */
+footer{
+  border-top:1px solid var(--line);background:var(--bg2);
+  padding:36px 0 30px;margin-top:20px;
+}
+.foot-top{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-start;}
+.foot-brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:16px;}
+.foot-brand .mark{width:32px;height:32px;}
+.foot-brand span{background:linear-gradient(90deg,var(--pink),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;}
+footer p.desc{font-size:13px;color:var(--sub);max-width:34em;margin-top:10px;}
+.foot-links{display:flex;gap:22px;flex-wrap:wrap;font-size:13.5px;color:var(--sub);}
+.foot-links a:hover{color:var(--pink);}
+.copy{
+  margin-top:26px;padding-top:18px;border-top:1px solid var(--line);
+  font-size:12.5px;color:#7d7495;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+}
+
+@media (max-width:900px){
+  .hero-inner{grid-template-columns:1fr;padding:38px 0 44px;gap:26px;}
+  .hero-art{order:-1;max-width:340px;}
+  .grid-hot{grid-template-columns:1fr 1fr;}
+  .split{grid-template-columns:1fr;}
+  .grid-cat{grid-template-columns:1fr 1fr;}
+  section{padding:42px 0;}
+}
+@media (max-width:560px){
+  .nav ul{order:3;width:100%;justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px;}
+  .nav .cta{margin-left:auto;}
+  .grid-hot{grid-template-columns:1fr;}
+  .grid-cat{grid-template-columns:1fr;}
+  h1{letter-spacing:.5px;}
+  .article{padding:24px 20px;}
+  .action-bar{padding:20px;}
+  .item{gap:12px;padding:14px 8px;}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="logo">
+      <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#221d30"/>
+        <circle cx="24" cy="25" r="7" fill="#ff5c7a"/>
+        <circle cx="42" cy="25" r="7" fill="#ffc23d"/>
+        <path d="M18 43c4 6 10 9 14 9s10-3 14-9" stroke="#42e0c8" stroke-width="5" fill="none" stroke-linecap="round"/>
+      </svg>
+      <span class="brand">每日黑料大乱斗</span>
+    </a>
+    <ul>
+      <li><a href="#hot">今日热榜</a></li>
+      <li><a href="#feed">黑料速览</a></li>
+      <li><a href="#cat">分区合集</a></li>
+      <li><a href="#about">玩法说明</a></li>
+    </ul>
+    <a class="cta" href="#hot">看今日榜单</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <div class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <span class="tag"><i></i>每日更新 · 吃瓜爆料聚合</span>
+        <h1>每日黑料大乱斗</h1>
+        <p class="lead">把一天里散落在各处的热点黑料、吃瓜爆料收进同一个擂台，按话题分区排好队。每日黑料大乱斗关注的是“今天大家在聊什么”，而不是给谁下结论。</p>
+        <div class="hero-actions">
+          <a class="btn btn-main" href="#hot">进入今日热榜 →</a>
+          <a class="btn btn-ghost" href="#about">了解内容范围</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 400 320" role="img">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ff5c7a"/>
+              <stop offset="1" stop-color="#ffc23d"/>
+            </linearGradient>
+            <linearGradient id="g2" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0" stop-color="#42e0c8"/>
+              <stop offset="1" stop-color="#7a6bff"/>
+            </linearGradient>
+          </defs>
+          <rect x="30" y="40" width="340" height="240" rx="26" fill="#1a1624" stroke="#332c46"/>
+          <rect x="60" y="72" width="180" height="16" rx="8" fill="url(#g1)" opacity=".9"/>
+          <rect x="60" y="104" width="130" height="12" rx="6" fill="#4b4266"/>
+          <rect x="60" y="128" width="210" height="12" rx="6" fill="#3a3352"/>
+          <circle cx="96" cy="196" r="26" fill="url(#g1)"/>
+          <circle cx="160" cy="196" r="26" fill="#332c46" stroke="#ffc23d" stroke-width="2"/>
+          <path d="M120 196h16" stroke="#1a1624" stroke-width="6" stroke-linecap="round"/>
+          <rect x="212" y="170" width="128" height="14" rx="7" fill="#42e0c8" opacity=".75"/>
+          <rect x="212" y="196" width="96" height="12" rx="6" fill="#4b4266"/>
+          <rect x="212" y="220" width="112" height="12" rx="6" fill="#3a3352"/>
+          <path d="M60 250h280" stroke="#332c46" stroke-width="2" stroke-dasharray="6 8"/>
+          <circle cx="330" cy="60" r="10" fill="#ff5c7a"/>
+          <circle cx="300" cy="52" r="5" fill="#ffc23d"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- 今日热榜 -->
+  <section id="hot">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>今日热榜</h2>
+          <p>按讨论热度排列的三条主线，每天重排一次，昨日条目自动下沉。</p>
+        </div>
+        <a class="btn btn-ghost" href="#feed" style="padding:8px 18px;font-size:13.5px;">查看全部速览</a>
+      </div>
+      <div class="grid-hot">
+        <article class="hot-card">
+          <span class="rank">01</span>
+          <p class="k">话题焦点</p>
+          <h3>热搜词条背后的讨论起点</h3>
+          <p>一条词条从出现到被反复转述，通常只隔几个小时。这里记录它最初的样子，以及后来被补充的细节，方便对照着看。</p>
+          <div class="meta"><span>更新于今日</span><b>热度上升</b></div>
+        </article>
+        <article class="hot-card">
+          <span class="rank">02</span>
+          <p class="k">持续发酵</p>
+          <h3>多方回应的前后时间线</h3>
+          <p>当事方、关联方与围观者的说法常常不同步。把每次回应按时间摆开，冲突点与空白处会更清楚，也更容易判断哪些还没定论。</p>
+          <div class="meta"><span>持续跟进</span><b>多轮回应</b></div>
+        </article>
+        <article class="hot-card">
+          <span class="rank">03</span>
+          <p class="k">冷门补档</p>
+          <h3>被快速淹没的旧料重提</h3>
+          <p>有些爆料当天没激起水花，几天后被新的上下文带火。补档区把这类内容单独收好，标明它第一次出现的时间。</p>
+          <div class="meta"><span>补档归档</span><b>旧料重提</b></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 黑料速览 -->
+  <section id="feed" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>黑料速览</h2>
+          <p>每条只保留能站住的部分：谁、什么时候、说了什么，其余留给原文。</p>
+        </div>
+      </div>
+      <div class="split">
+        <div class="list">
+          <div class="item">
+            <div class="no">1</div>
+            <div class="txt">
+              <h3>某品牌客服录音流出，回应口径与公告不一致</h3>
+              <p>录音片段与官方公告在赔偿标准上存在差异，双方均未给出完整说明。</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="no">2</div>
+            <div class="txt">
+              <h3>合作方互相取关，联名项目页面已下架</h3>
+              <p>页面下架时间早于双方声明，具体原因尚未公开。</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="no">3</div>
+            <div class="txt">
+              <h3>旧采访被翻出，与近期说法互相矛盾</h3>
+              <p>两段采访相隔两年，当事人暂未就差异作出解释。</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="no">4</div>
+            <div class="txt">
+              <h3>内部群聊截图流传，涉及排期调整</h3>
+              <p>截图未标注来源，排期变动已由相关账号侧面证实。</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="no">5</div>
+            <div class="txt">
+              <h3>活动现场视频剪辑版本引发争议</h3>
+              <p>流传版本与完整录像在顺序上有出入，完整版已可查。</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="no">6</div>
+            <div class="txt">
+              <h3>代运营账号归属问题再起讨论</h3>
+              <p>账号注册信息与运营方说法不一致，尚无定论。</p>
+            </div>
+          </div>
+        </div>
+        <aside class="side-card">
+          <h3>大家都在看</h3>
+          <div class="chips">
+            <a href="#hot">热搜词条</a>
+            <a href="#hot">多方回应</a>
+            <a href="#cat">冷门补档</a>
+            <a href="#cat">截图流传</a>
+            <a href="#cat">时间线</a>
+            <a href="#about">内容边界</a>
+          </div>
+          <p class="side-note">速览只是入口。每条黑料都标注了它目前的状态：待证实、已回应、仍有分歧。先看状态，再决定要不要深读。</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 分区合集 -->
+  <section id="cat">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>分区合集</h2>
+          <p>每日黑料大乱斗把内容拆成四类，方便按兴趣直接跳转。</p>
+        </div>
+      </div>
+      <div class="grid-cat">
+        <a class="cat" href="#feed">
+          <svg class="ico" viewBox="0 0 40 40" aria-hidden="true"><rect x="4" y="6" width="32" height="28" rx="6" fill="none" stroke="#ff5c7a" stroke-width="2.5"/><path d="M12 16h16M12 22h11M12 28h7" stroke="#ffc23d" stroke-width="2.5" stroke-linecap="round"/></svg>
+          <h3>爆料速递</h3>
+          <p>当天新出的爆料，按出现时间先后排列。</p>
+          <span class="cnt">每日上新</span>
+        </a>
+        <a class="cat" href="#hot">
+          <svg class="ico" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 6l4 9 10 1-7 7 2 10-9-5-9 5 2-10-7-7 10-1z" fill="none" stroke="#ffc23d" stroke-width="2.5" stroke-linejoin="round"/></svg>
+          <h3>热点交锋</h3>
+          <p>同一件事的不同说法放在一起对照。</p>
+          <span class="cnt">多方观点</span>
+        </a>
+        <a class="cat" href="#feed">
+          <svg class="ico" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="14" fill="none" stroke="#42e0c8" stroke-width="2.5"/><path d="M20 12v8l6 4" stroke="#42e0c8" stroke-width="2.5" stroke-linecap="round"/></svg>
+          <h3>时间线梳理</h3>
+          <p>把散落的节点按日期串成一条线。</p>
+          <span class="cnt">持续更新</span>
+        </a>
+        <a class="cat" href="#about">
+          <svg class="ico" viewBox="0 0 40 40" aria-hidden="true"><path d="M8 10h24v18H22l-6 6v-6H8z" fill="none" stroke="#7a6bff" stroke-width="2.5" stroke-linejoin="round"/><path d="M14 18h12M14 23h8" stroke="#7a6bff" stroke-width="2.5" stroke-linecap="round"/></svg>
+          <h3>评论区观察</h3>
+          <p>围观者的关注点，有时比事件本身更有意思。</p>
+          <span class="cnt">精选留言</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 玩法说明 -->
+  <section id="about" style="background:var(--bg2);border-top:1px solid var(--line);">
+    <div class="wrap">
+      <div class="article">
+        <h2>每日黑料大乱斗怎么逛</h2>
+        <p>每日黑料大乱斗不是审判席，更像一个当天的信息集散地。打开首页，你会先看到热榜上的三条主线，那是今天被讨论最多的部分；往下是速览列表，每条只写一句能核实的摘要；再往下按四类分区，想看哪类直接点进去。</p>
+        <h3>先看状态，再看内容</h3>
+        <p>每条黑料都带一个状态标记：<strong>待证实</strong>表示只有单方说法，<strong>已回应</strong>表示当事方已公开表态，<strong>仍有分歧</strong>表示双方说法对不上。状态比标题更值得先读，它决定了你该用几分信任去看后面的字。</p>
+        <h3>为什么叫大乱斗</h3>
+        <p>因为同一件事往往有好几个版本同时流传。每日黑料大乱斗的做法是把这些版本并排放，标清各自的来源和时间，而不是挑一个当结论。你会发现，很多看起来激烈的冲突，其实只是时间差造成的错觉。</p>
+        <h3>内容边界</h3>
+        <p>我们只收录已公开传播的讨论，不发布未经核实的私人信息，也不对当事人做道德定性。速览里的每一句摘要都能在原始来源中找到对应，来源链接标注在条目旁。如果某条后来被证伪，我们会保留记录并补上更正说明，而不是悄悄删掉。</p>
+        <h3>每天什么时候更新</h3>
+        <p>热榜在每天固定时段重排一次，速览随事件进展滚动补充。补档区不按天更新，只在旧料被重新带火时才会浮上来。想跟上节奏，收藏本页即可，所有内容都直接呈现在这里。</p>
+      </div>
+
+      <div class="action-bar">
+        <div>
+          <h3>把今日榜单带在身边</h3>
+          <p>页面内容每日同步，下载入口开放后可直接获取当日汇总。</p>
+        </div>
+        <div class="btns">
+          <a class="btn btn-main" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1" style="pointer-events:none;">下载</a>
+          <a class="btn btn-ghost" href="#hot">回到热榜</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="foot-brand">
+          <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#221d30"/>
+            <circle cx="24" cy="25" r="7" fill="#ff5c7a"/>
+            <circle cx="42" cy="25" r="7" fill="#ffc23d"/>
+            <path d="M18 43c4 6 10 9 14 9s10-3 14-9" stroke="#42e0c8" stroke-width="5" fill="none" stroke-linecap="round"/>
+          </svg>
+          <span>每日黑料大乱斗</span>
+        </div>
+        <p class="desc">每日黑料大乱斗聚合当天公开传播的热点黑料与吃瓜爆料，按状态标注、按话题分区，帮助你在信息最杂的时候先看清脉络。</p>
+      </div>
+      <div class="foot-links">
+        <a href="#hot">今日热榜</a>
+        <a href="#feed">黑料速览</a>
+        <a href="#cat">分区合集</a>
+        <a href="#about">玩法说明</a>
+      </div>
+    </div>
+    <div class="copy">
+      <span>每日黑料大乱斗 · 内容仅作公开讨论汇总，不代表对任何一方的定性。</span>
+      <span>内容随事件进展更新</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
