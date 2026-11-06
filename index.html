@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>b站下载-b站客户端下载_b站下载安装</title>
+<meta name="description" content="b站下载主题首页，梳理B站客户端在各端的下载方式、安装要点与常见问题，帮助访客快速找到b站下载入口并完成安装。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23fb7299'/%3E%3Cpath d='M18 24h28v20H18z' fill='%23fff'/%3E%3Cpath d='M22 18l6 6M42 18l-6 6' stroke='%23fff' stroke-width='4' stroke-linecap='round' fill='none'/%3E%3C/svg%3E">
+<style>
+:root{
+  --pink:#fb7299;
+  --pink-deep:#e05a80;
+  --ink:#18191c;
+  --ink-2:#3d3f45;
+  --muted:#6d7179;
+  --line:#ececf0;
+  --bg:#fbfafc;
+  --card:#ffffff;
+  --blue:#00aeec;
+  --radius:16px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",system-ui,-apple-system,sans-serif;
+  color:var(--ink-2);
+  background:var(--bg);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3{color:var(--ink);line-height:1.35;margin:0;}
+p{margin:0;}
+img,svg{display:block;}
+.wrap{width:min(1120px,92vw);margin:0 auto;}
+
+/* 页头 */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,255,255,.9);
+  backdrop-filter:saturate(180%) blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{display:flex;align-items:center;gap:24px;height:64px;}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;color:var(--ink);letter-spacing:.2px;flex-shrink:0;}
+.logo-mark{width:34px;height:34px;border-radius:10px;background:var(--pink);display:grid;place-items:center;flex-shrink:0;}
+.logo-mark svg{width:20px;height:20px;}
+.nav{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap;}
+.nav a{
+  font-size:14.5px;color:var(--muted);padding:7px 12px;border-radius:9px;
+  transition:.18s;white-space:nowrap;
+}
+.nav a:hover{color:var(--pink-deep);background:#fdf1f5;}
+
+/* 首屏 */
+.hero{
+  background:
+    radial-gradient(900px 360px at 88% -10%, rgba(251,114,153,.16), transparent 70%),
+    radial-gradient(700px 320px at 4% 110%, rgba(0,174,236,.12), transparent 70%),
+    #fff;
+  border-bottom:1px solid var(--line);
+  padding:64px 0 56px;
+}
+.hero-grid{display:grid;grid-template-columns:1.25fr .85fr;gap:48px;align-items:center;}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:600;color:var(--pink-deep);
+  background:#fdeef3;border:1px solid #fbd7e2;
+  padding:5px 13px;border-radius:999px;margin-bottom:20px;
+}
+.eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--pink);}
+h1{font-size:clamp(30px,4.4vw,46px);font-weight:800;letter-spacing:-.5px;}
+.hero-lead{margin-top:18px;font-size:16.5px;color:var(--ink-2);max-width:34em;}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:12px 26px;border-radius:999px;font-size:15px;font-weight:700;
+  transition:.2s;border:1px solid transparent;
+}
+.btn-primary{background:var(--pink);color:#fff;box-shadow:0 8px 20px -8px rgba(251,114,153,.9);}
+.btn-primary:hover{background:var(--pink-deep);}
+.btn-primary[aria-disabled="true"]{cursor:default;}
+.btn-ghost{background:#fff;color:var(--ink);border-color:#e3e3ea;}
+.btn-ghost:hover{border-color:var(--pink);color:var(--pink-deep);}
+.hero-meta{display:flex;gap:26px;margin-top:32px;flex-wrap:wrap;font-size:13.5px;color:var(--muted);}
+.hero-meta strong{display:block;font-size:19px;color:var(--ink);font-weight:800;}
+
+/* 首屏视觉 */
+.hero-visual{
+  background:#fff;border:1px solid var(--line);border-radius:24px;
+  padding:22px;box-shadow:0 24px 60px -34px rgba(24,25,28,.35);
+}
+.mock-bar{display:flex;gap:6px;margin-bottom:14px;}
+.mock-bar i{width:9px;height:9px;border-radius:50%;background:#e6e6ee;display:block;}
+.mock-screen{
+  border-radius:14px;overflow:hidden;background:#fafafe;border:1px solid #f0f0f5;
+  padding:16px;
+}
+.mock-row{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.mock-thumb{width:52px;height:36px;border-radius:7px;background:linear-gradient(135deg,#fb7299,#ffb1c7);flex-shrink:0;}
+.mock-thumb.b{background:linear-gradient(135deg,#00aeec,#7fd8f5);}
+.mock-thumb.c{background:linear-gradient(135deg,#ffb400,#ffdc8a);}
+.mock-line{height:8px;border-radius:4px;background:#e9e9f0;flex:1;}
+.mock-line.short{max-width:62%;}
+.mock-pill{
+  margin-top:14px;display:flex;align-items:center;justify-content:center;gap:8px;
+  background:var(--pink);color:#fff;font-size:13px;font-weight:700;
+  padding:10px;border-radius:10px;
+}
+
+/* 通用区块 */
+section{padding:64px 0;}
+.sec-head{max-width:640px;margin-bottom:36px;}
+.sec-tag{font-size:13px;font-weight:700;color:var(--pink-deep);letter-spacing:1.5px;text-transform:uppercase;}
+.sec-head h2{font-size:clamp(22px,2.7vw,29px);font-weight:800;margin-top:8px;letter-spacing:-.2px;}
+.sec-head p{margin-top:12px;color:var(--muted);font-size:15px;}
+
+/* 平台卡片 */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px 24px;transition:.22s;
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 18px 40px -26px rgba(24,25,28,.4);border-color:#f2dbe3;}
+.card-icon{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;margin-bottom:16px;background:#fdf1f5;}
+.card-icon svg{width:22px;height:22px;stroke:var(--pink-deep);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.card h3{font-size:17px;font-weight:700;margin-bottom:8px;}
+.card p{font-size:14.5px;color:var(--muted);}
+.card .tagline{display:inline-block;margin-top:14px;font-size:12.5px;font-weight:600;color:var(--pink-deep);background:#fdf1f5;padding:3px 10px;border-radius:6px;}
+
+/* 步骤 */
+.steps{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.step-list{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:step;}
+.step{
+  background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px 22px;position:relative;
+}
+.step::before{
+  counter-increment:step;content:counter(step,decimal-leading-zero);
+  font-size:13px;font-weight:800;color:var(--pink);letter-spacing:1px;
+  display:block;margin-bottom:10px;
+}
+.step h3{font-size:15.5px;font-weight:700;margin-bottom:6px;}
+.step p{font-size:14px;color:var(--muted);}
+
+/* 要点列表 */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
+.note-list{list-style:none;padding:0;margin:0;display:grid;gap:16px;}
+.note-list li{
+  background:#fff;border:1px solid var(--line);border-radius:14px;
+  padding:18px 20px;display:flex;gap:14px;
+}
+.note-list li::before{
+  content:"";flex-shrink:0;width:8px;height:8px;border-radius:50%;
+  background:var(--pink);margin-top:9px;
+}
+.note-list strong{color:var(--ink);font-weight:700;}
+.note-list span{display:block;font-size:14px;color:var(--muted);margin-top:2px;}
+.aside-box{
+  background:linear-gradient(160deg,#fff5f8,#fff);
+  border:1px solid #fbdce6;border-radius:20px;padding:30px;
+}
+.aside-box h3{font-size:18px;font-weight:800;margin-bottom:14px;}
+.aside-box p{font-size:14.5px;color:var(--ink-2);}
+.aside-box p + p{margin-top:12px;}
+
+/* FAQ */
+.faq{background:#fff;border-top:1px solid var(--line);}
+.faq-list{display:grid;gap:12px;max-width:840px;}
+details{
+  background:var(--bg);border:1px solid var(--line);border-radius:14px;
+  padding:16px 20px;transition:.2s;
+}
+details[open]{background:#fff;border-color:#f5d3df;}
+summary{
+  cursor:pointer;font-weight:700;font-size:15.5px;color:var(--ink);
+  list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;
+}
+summary::-webkit-details-marker{display:none;}
+summary::after{content:"+";font-size:20px;color:var(--pink);font-weight:400;line-height:1;}
+details[open] summary::after{content:"–";}
+details p{font-size:14.5px;color:var(--muted);margin-top:12px;}
+
+/* 收束横幅 */
+.cta-band{
+  background:linear-gradient(120deg,#fb7299,#ff9db7 60%,#ffc4d4);
+  color:#fff;border-radius:24px;padding:48px 40px;text-align:center;
+}
+.cta-band h2{color:#fff;font-size:clamp(22px,2.8vw,30px);font-weight:800;}
+.cta-band p{margin-top:12px;font-size:15.5px;color:rgba(255,255,255,.92);max-width:36em;margin-left:auto;margin-right:auto;}
+.cta-band .btn{margin-top:26px;background:#fff;color:var(--pink-deep);}
+.cta-band .btn:hover{background:#fff5f8;}
+
+/* 页尾 */
+.site-footer{
+  background:#18191c;color:#a9abb3;padding:52px 0 34px;margin-top:64px;
+}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;}
+.footer-brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;font-size:17px;margin-bottom:14px;}
+.footer-brand .logo-mark{background:var(--pink);}
+.site-footer p{font-size:13.5px;line-height:1.8;color:#8b8d95;}
+.site-footer h4{color:#fff;font-size:14px;font-weight:700;margin:0 0 14px;}
+.site-footer ul{list-style:none;padding:0;margin:0;display:grid;gap:9px;font-size:13.5px;}
+.site-footer ul a{color:#a9abb3;transition:.18s;}
+.site-footer ul a:hover{color:var(--pink);}
+.footer-bottom{
+  border-top:1px solid #2a2b30;margin-top:36px;padding-top:22px;
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;color:#6f717a;
+}
+
+/* 响应式 */
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:36px;}
+  .grid-3{grid-template-columns:1fr 1fr;}
+  .step-list{grid-template-columns:1fr 1fr;}
+  .split{grid-template-columns:1fr;gap:28px;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:640px){
+  .header-inner{height:auto;padding:12px 0;flex-wrap:wrap;gap:8px;}
+  .nav{margin-left:0;width:100%;overflow-x:auto;padding-bottom:2px;}
+  .nav a{padding:6px 9px;font-size:13.5px;}
+  .hero{padding:40px 0 36px;}
+  .hero-meta{gap:18px;}
+  section{padding:44px 0;}
+  .grid-3,.step-list,.footer-grid{grid-template-columns:1fr;}
+  .cta-band{padding:36px 22px;border-radius:18px;}
+  .aside-box{padding:24px;}
+  body{line-height:1.7;}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="#top" aria-label="b站下载 首页">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M5 8h14v11H5z" fill="#fff"/><path d="M7.5 4.5L10 8M16.5 4.5L14 8" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </span>
+      b站下载
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="#platforms">下载方式</a>
+      <a href="#steps">安装步骤</a>
+      <a href="#notes">使用要点</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">客户端与安装指引</span>
+        <h1>b站下载</h1>
+        <p class="hero-lead">把 b站下载 这件事讲清楚：手机端、电脑端与电视端各自从哪里获取客户端，安装前要确认哪些条件，装好后如何登录同步。本页围绕 b站下载 的常见需求整理入口与要点，方便你按设备对号入座。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1" style="pointer-events:none;">下载</a>
+          <a class="btn btn-ghost" href="#platforms">查看各端方式</a>
+        </div>
+        <div class="hero-meta">
+          <div><strong>3 类</strong>常见设备端</div>
+          <div><strong>4 步</strong>安装流程</div>
+          <div><strong>5 条</strong>常见问答</div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="mock-bar"><i></i><i></i><i></i></div>
+        <div class="mock-screen">
+          <div class="mock-row"><div class="mock-thumb"></div><div><div class="mock-line"></div><div class="mock-line short" style="margin-top:7px;"></div></div></div>
+          <div class="mock-row"><div class="mock-thumb b"></div><div><div class="mock-line"></div><div class="mock-line short" style="margin-top:7px;"></div></div></div>
+          <div class="mock-row"><div class="mock-thumb c"></div><div><div class="mock-line"></div><div class="mock-line short" style="margin-top:7px;"></div></div></div>
+          <div class="mock-pill">b站下载 · 客户端安装</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 下载方式 -->
+  <section id="platforms">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-tag">Download</span>
+        <h2>按设备选择 b站下载方式</h2>
+        <p>不同设备的获取路径并不相同。先确认自己用的是哪种终端，再进入对应的商店或官网页面，可以少走弯路。</p>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>
+          </div>
+          <h3>手机端</h3>
+          <p>iOS 用户前往 App Store，安卓用户前往手机自带应用商店或官方应用市场，搜索客户端名称后获取安装包。这是最常见的 b站下载 入口。</p>
+          <span class="tagline">App Store / 应用市场</span>
+        </article>
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="12.5" rx="2"/><path d="M8 20h8M12 16.5V20"/></svg>
+          </div>
+          <h3>电脑端</h3>
+          <p>Windows 与 macOS 用户可在官网下载页获取桌面客户端，按系统位数选择对应版本。电脑端适合长时间观看与多窗口使用。</p>
+          <span class="tagline">Windows / macOS</span>
+        </article>
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="12" rx="2"/><path d="M9 21h6M12 17v4"/><path d="M7 9.5l2 2 2-2"/></svg>
+          </div>
+          <h3>电视与平板</h3>
+          <p>电视端通常通过应用商店或投屏方式使用，平板则与手机端共用同一安装包。大屏场景下，b站下载 后注意在设置中调整清晰度。</p>
+          <span class="tagline">大屏 / 投屏</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 安装步骤 -->
+  <section id="steps" class="steps">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-tag">Setup</span>
+        <h2>完成 b站下载 后的四步安装</h2>
+        <p>拿到安装包只是开始。下面四步覆盖从授权到登录的完整过程，按顺序操作即可正常进入客户端。</p>
+      </div>
+      <div class="step-list">
+        <article class="step">
+          <h3>确认来源</h3>
+          <p>核对安装包名称与发布方，避免从陌生页面获取来源不明的文件，这是 b站下载 环节最需要留意的一步。</p>
+        </article>
+        <article class="step">
+          <h3>允许安装</h3>
+          <p>安卓设备首次安装外部应用时，系统会提示开启相应权限，按引导在设置中允许即可继续。</p>
+        </article>
+        <article class="step">
+          <h3>登录账号</h3>
+          <p>打开客户端后用手机号或已有账号登录，收藏、历史与关注列表会随账号同步到当前设备。</p>
+        </article>
+        <article class="step">
+          <h3>调整偏好</h3>
+          <p>在设置中按网络情况选择默认清晰度与缓存位置，让 b站下载 后的使用体验更贴合个人习惯。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 使用要点 -->
+  <section id="notes">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-tag">Notes</span>
+        <h2>b站下载 前值得了解的要点</h2>
+        <p>把版本、空间与网络三件事想清楚，安装过程往往会顺利很多。以下内容按实际使用场景整理。</p>
+      </div>
+      <div class="split">
+        <ul class="note-list">
+          <li>
+            <div>
+              <strong>版本要与设备匹配</strong>
+              <span>手机端安装包不能直接用于电脑，下载时先确认页面标注的系统与架构，避免装到一半提示不兼容。</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>预留足够存储空间</strong>
+              <span>客户端本体之外，缓存视频会持续占用空间。建议在 b站下载 前清理出一定余量，尤其是容量较小的手机。</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>网络环境影响速度</strong>
+              <span>安装包体积较大，使用稳定 Wi-Fi 比移动网络更稳妥；下载中断时重新获取通常比反复重试更省时间。</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>更新走同一渠道</strong>
+              <span>后续版本更新最好沿用首次 b站下载 的渠道，不同渠道的包体可能不同，混装容易出现异常。</span>
+            </div>
+          </li>
+        </ul>
+        <aside class="aside-box">
+          <h3>关于本页的说明</h3>
+          <p>本页是一个围绕 b站下载 主题整理的信息页，把分散在各端的获取方式、安装顺序与注意事项集中呈现，方便一次读完。</p>
+          <p>页面中的下载按钮当前为占位状态，尚未接入实际文件地址，点击不会触发下载。具体安装包请以官方应用商店与官网发布页为准。</p>
+          <p>客户端的功能范围、系统要求与界面细节会随版本调整，此处描述的是常见情况，实际以你获取到的版本为准。</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 常见问题 -->
+  <section id="faq" class="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-tag">FAQ</span>
+        <h2>b站下载 常见问题</h2>
+        <p>整理访客在下载与安装过程中问得较多的几个问题，答案以通用情况为准。</p>
+      </div>
+      <div class="faq-list">
+        <details open>
+          <summary>b站下载 应该去哪个渠道更稳妥？</summary>
+          <p>优先选择手机系统自带的应用商店，或客户端官网的下载页面。这两类渠道的安装包经过对应平台的发布流程，来源相对明确，也便于后续更新。</p>
+        </details>
+        <details>
+          <summary>安装时提示“未知来源”怎么办？</summary>
+          <p>这是安卓系统对外部安装包的常规限制。在系统设置中找到应用安装权限，为当前使用的浏览器或文件管理器开启允许安装，即可继续完成 b站下载 后的安装步骤。</p>
+        </details>
+        <details>
+          <summary>电脑端和手机端的账号能通用吗？</summary>
+          <p>可以。使用同一账号登录后，收藏、关注与观看历史会同步。区别主要在界面布局与操作方式，内容库本身是同一套。</p>
+        </details>
+        <details>
+          <summary>下载后打不开或闪退如何处理？</summary>
+          <p>先确认系统版本是否满足要求，再尝试清理缓存或重新安装。若问题依旧，可换用另一渠道重新获取安装包，排除包体损坏的可能。</p>
+        </details>
+        <details>
+          <summary>页面上的下载按钮为什么没有反应？</summary>
+          <p>当前按钮为占位入口，尚未绑定实际文件地址，因此处于不可点击状态。安装包请通过官方应用商店或官网发布页获取。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 收束 -->
+  <section>
+    <div class="wrap">
+      <div class="cta-band">
+        <h2>选好设备，一次完成 b站下载</h2>
+        <p>确认终端类型、核对安装包来源、留出存储空间，三步准备就绪后，b站下载 与安装通常只需几分钟。装好后登录账号，收藏与历史会一并同步过来。</p>
+        <a class="btn" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1" style="pointer-events:none;">下载</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <span class="logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 8h14v11H5z" fill="#fff"/><path d="M7.5 4.5L10 8M16.5 4.5L14 8" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </span>
+          b站下载
+        </div>
+        <p>围绕 b站下载 整理各端获取方式、安装顺序与使用要点，帮助访客按设备快速找到合适的入口。</p>
+      </div>
+      <div>
+        <h4>页面导航</h4>
+        <ul>
+          <li><a href="#platforms">下载方式</a></li>
+          <li><a href="#steps">安装步骤</a></li>
+          <li><a href="#notes">使用要点</a></li>
+          <li><a href="#faq">常见问题</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>相关说明</h4>
+        <ul>
+          <li><a href="#platforms">手机端获取</a></li>
+          <li><a href="#platforms">电脑端获取</a></li>
+          <li><a href="#notes">版本与空间</a></li>
+          <li><a href="#faq">安装权限</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 b站下载 主题页 · 内容为通用信息整理</span>
+      <span>安装包请以官方应用商店与官网发布页为准</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
