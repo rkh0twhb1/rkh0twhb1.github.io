@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>抖漫在线看-抖漫免费观看_抖漫全集在线追番</title>
+<meta name="description" content="抖漫在线看为漫迷提供抖漫在线观看入口，按题材与更新节奏浏览短篇国漫、竖屏条漫改动画与热播连载，追踪连载进度、查看作品简介与分集清单，随时继续上一话。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314131f'/%3E%3Cpath d='M24 18v28l22-14z' fill='%23ffb347'/%3E%3Ccircle cx='18' cy='18' r='4' fill='%23ff5d73'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#14131f;
+  --ink-2:#1e1c2e;
+  --paper:#f6f4ef;
+  --card:#ffffff;
+  --line:#e3ded4;
+  --text:#26242f;
+  --muted:#6d6a76;
+  --amber:#ffb347;
+  --rose:#ff5d73;
+  --teal:#2fa39a;
+  --radius:16px;
+  --maxw:1120px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
+  background:var(--paper);
+  color:var(--text);
+  line-height:1.75;
+  font-size:16px;
+}
+a{color:inherit;text-decoration:none}
+img,svg{max-width:100%;display:block}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+/* Header */
+.site-head{background:var(--ink);color:#fff;position:sticky;top:0;z-index:40;border-bottom:1px solid rgba(255,255,255,.08)}
+.head-inner{display:flex;align-items:center;gap:18px;min-height:66px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;letter-spacing:.5px;color:#fff}
+.logo .mark{width:34px;height:34px;flex:0 0 auto;border-radius:10px;background:linear-gradient(140deg,var(--rose),var(--amber));display:grid;place-items:center}
+.logo .mark svg{width:18px;height:18px}
+.nav{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.nav a{font-size:14.5px;padding:7px 12px;border-radius:999px;color:#d9d6e2;transition:.18s}
+.nav a:hover,.nav a:focus-visible{background:rgba(255,255,255,.12);color:#fff;outline:none}
+.nav a.cta{background:var(--amber);color:#231a09;font-weight:700}
+.nav a.cta:hover{background:#ffc46b;color:#231a09}
+
+/* Hero */
+.hero{background:radial-gradient(1200px 420px at 78% -10%,rgba(255,93,115,.28),transparent 60%),linear-gradient(180deg,var(--ink) 0%,var(--ink-2) 100%);color:#fff;padding:52px 0 56px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:42px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;letter-spacing:2px;color:var(--amber);border:1px solid rgba(255,179,71,.4);padding:4px 12px;border-radius:999px;margin:0 0 18px}
+h1{font-size:clamp(30px,4.4vw,46px);line-height:1.2;margin:0 0 16px;font-weight:800;letter-spacing:1px}
+.hero p.lead{color:#cfcbdb;font-size:16.5px;margin:0 0 26px;max-width:42ch}
+.btn-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font-weight:700;font-size:15px;border:1px solid transparent;transition:.18s}
+.btn-primary{background:var(--amber);color:#231a09}
+.btn-primary:hover{background:#ffc46b}
+.btn-ghost{border-color:rgba(255,255,255,.3);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.1)}
+.hero-art{position:relative}
+.hero-art .frame{border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04)}
+.hero-stats{display:flex;gap:26px;margin-top:26px;flex-wrap:wrap}
+.hero-stats div{font-size:13px;color:#a9a5b8}
+.hero-stats strong{display:block;font-size:20px;color:#fff;font-weight:800;line-height:1.4}
+
+/* Section base */
+section{padding:56px 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:26px;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(21px,2.6vw,27px);margin:0;font-weight:800;letter-spacing:.5px}
+.sec-head p{margin:6px 0 0;color:var(--muted);font-size:14.5px}
+.sec-head .more{font-size:14px;color:var(--teal);font-weight:700}
+.sec-head .more:hover{text-decoration:underline}
+
+/* Cards */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:10px}
+.card h3{margin:0;font-size:17px;font-weight:800}
+.card p{margin:0;font-size:14.5px;color:var(--muted)}
+.tag{display:inline-block;font-size:12px;padding:2px 9px;border-radius:6px;background:#f0ece2;color:#6b6455;font-weight:600}
+.tag.hot{background:#ffe9ec;color:#c2334a}
+.tag.new{background:#e3f2f0;color:#1f7d76}
+
+/* Browse toolbar */
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;margin-bottom:24px}
+.chip{border:1px solid var(--line);background:#faf8f3;color:#4a4653;font-size:13.5px;padding:6px 14px;border-radius:999px;cursor:pointer;font-family:inherit;transition:.16s}
+.chip:hover{border-color:#c9c1b0}
+.chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.search{display:flex;gap:8px;margin-left:auto;flex:1 1 240px;max-width:320px}
+.search input{flex:1;min-width:0;padding:9px 14px;border:1px solid var(--line);border-radius:999px;font-family:inherit;font-size:14px;background:#faf8f3;color:var(--text)}
+.search input:focus{outline:2px solid rgba(47,163,154,.45);outline-offset:1px}
+.search button{padding:9px 18px;border-radius:999px;border:none;background:var(--ink);color:#fff;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit}
+.search button:hover{background:#2b2840}
+
+/* Work list */
+.work{display:grid;grid-template-columns:96px 1fr;gap:16px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px;align-items:start}
+.work .cover{border-radius:12px;overflow:hidden;aspect-ratio:3/4;background:#efeae0}
+.work h3{margin:2px 0 4px;font-size:16.5px;font-weight:800}
+.work .meta{font-size:13px;color:var(--muted);margin:0 0 6px}
+.work p{margin:0;font-size:14px;color:#55515e}
+.work .foot{margin-top:8px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.empty{padding:28px;text-align:center;color:var(--muted);background:#fff;border:1px dashed var(--line);border-radius:var(--radius);font-size:14.5px}
+.count-hint{font-size:13.5px;color:var(--muted);margin:0 0 14px}
+
+/* Steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.step{padding:26px 22px;border-right:1px solid var(--line)}
+.step:last-child{border-right:none}
+.step .num{width:30px;height:30px;border-radius:9px;background:var(--ink);color:var(--amber);display:grid;place-items:center;font-weight:800;font-size:14px;margin-bottom:12px}
+.step h3{margin:0 0 6px;font-size:16px;font-weight:800}
+.step p{margin:0;font-size:14px;color:var(--muted)}
+
+/* FAQ */
+.faq{max-width:none}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:12px}
+.faq details[open]{border-color:#cfc8b8}
+.faq summary{cursor:pointer;font-weight:700;font-size:15.5px;list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-weight:800;color:var(--teal);font-size:18px;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq p{margin:12px 0 0;font-size:14.5px;color:#55515e}
+
+/* Download */
+.dl{background:var(--ink);color:#fff;border-radius:22px;padding:36px;display:grid;grid-template-columns:1.3fr .7fr;gap:28px;align-items:center}
+.dl h2{margin:0 0 10px;font-size:24px;font-weight:800}
+.dl p{margin:0 0 18px;color:#cfcbdb;font-size:14.5px;max-width:46ch}
+.btn-dl{display:inline-flex;align-items:center;gap:9px;padding:13px 26px;border-radius:999px;background:var(--amber);color:#231a09;font-weight:800;font-size:15px;pointer-events:none;opacity:.95}
+.dl-note{font-size:12.5px;color:#9b97a9;margin-top:10px}
+.dl svg{width:100%;height:auto}
+
+/* Footer */
+.site-foot{background:var(--ink);color:#a9a5b8;padding:40px 0 30px;margin-top:16px}
+.foot-grid{display:flex;justify-content:space-between;gap:26px;flex-wrap:wrap;align-items:flex-start}
+.foot-brand{font-weight:800;color:#fff;font-size:17px;display:flex;align-items:center;gap:10px}
+.foot-links{display:flex;gap:18px;flex-wrap:wrap;font-size:14px}
+.foot-links a:hover{color:#fff}
+.copy{border-top:1px solid rgba(255,255,255,.1);margin-top:26px;padding-top:18px;font-size:13px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:30px}
+  .hero-art{order:2;max-width:420px}
+  .grid-3{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr}
+  .step{border-right:none;border-bottom:1px solid var(--line)}
+  .step:last-child{border-bottom:none}
+  .dl{grid-template-columns:1fr;padding:28px}
+  .dl .dl-art{display:none}
+}
+@media (max-width:640px){
+  body{font-size:15.5px}
+  .head-inner{min-height:auto;padding:12px 0;gap:10px}
+  .nav{margin-left:0;width:100%;gap:4px}
+  .nav a{padding:6px 10px;font-size:13.5px}
+  .hero{padding:34px 0 40px}
+  .hero-stats{gap:18px}
+  section{padding:40px 0}
+  .grid-3,.grid-2{grid-template-columns:1fr}
+  .work{grid-template-columns:76px 1fr;padding:14px;gap:12px}
+  .search{margin-left:0;max-width:none;flex:1 1 100%}
+  .toolbar{padding:12px}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="logo" href="#top" aria-label="抖漫在线看 首页">
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M9 6v12l10-6z" fill="#231a09"/></svg>
+      </span>
+      <span>抖漫在线看</span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="#browse">作品浏览</a>
+      <a href="#how">怎么看</a>
+      <a href="#faq">常见问答</a>
+      <a href="#download">客户端</a>
+      <a class="cta" href="#browse">开始追番</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Hero -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">短篇国漫 · 竖屏条漫改动画</span>
+        <h1 id="hero-title">抖漫在线看</h1>
+        <p class="lead">抖漫在线看把一话三五分钟就能看完的短篇漫画动画收在一处。选好题材，接着上一话往下看，进度、分集与作品简介都摆在同一条浏览路径里。</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#browse">进入作品浏览</a>
+          <a class="btn btn-ghost" href="#how">了解观看方式</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>3 类</strong>题材分区</div>
+          <div><strong>6 部</strong>首屏可浏览作品</div>
+          <div><strong>1 话起</strong>按更新节奏追更</div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="frame">
+          <svg viewBox="0 0 420 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="竖屏短漫播放界面示意">
+            <defs>
+              <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ff5d73"/><stop offset="1" stop-color="#ffb347"/>
+              </linearGradient>
+            </defs>
+            <rect width="420" height="320" fill="#1b1929"/>
+            <rect x="24" y="24" width="150" height="272" rx="14" fill="#2a2740"/>
+            <rect x="40" y="40" width="118" height="120" rx="8" fill="url(#g1)" opacity=".85"/>
+            <rect x="40" y="172" width="118" height="10" rx="5" fill="#4a465e"/>
+            <rect x="40" y="192" width="86" height="10" rx="5" fill="#3a3750"/>
+            <rect x="40" y="222" width="118" height="26" rx="13" fill="#ffb347"/>
+            <rect x="196" y="24" width="200" height="120" rx="14" fill="#2a2740"/>
+            <circle cx="238" cy="84" r="26" fill="#ffb347"/>
+            <path d="M232 72v24l20-12z" fill="#1b1929"/>
+            <rect x="278" y="64" width="98" height="10" rx="5" fill="#4a465e"/>
+            <rect x="278" y="84" width="70" height="10" rx="5" fill="#3a3750"/>
+            <rect x="278" y="104" width="86" height="10" rx="5" fill="#3a3750"/>
+            <rect x="196" y="160" width="200" height="60" rx="12" fill="#2a2740"/>
+            <rect x="212" y="176" width="60" height="28" rx="6" fill="#ff5d73" opacity=".8"/>
+            <rect x="284" y="182" width="96" height="8" rx="4" fill="#4a465e"/>
+            <rect x="284" y="196" width="64" height="8" rx="4" fill="#3a3750"/>
+            <rect x="196" y="236" width="200" height="60" rx="12" fill="#2a2740"/>
+            <rect x="212" y="252" width="60" height="28" rx="6" fill="#2fa39a" opacity=".8"/>
+            <rect x="284" y="258" width="96" height="8" rx="4" fill="#4a465e"/>
+            <rect x="284" y="272" width="70" height="8" rx="4" fill="#3a3750"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Browse -->
+  <section id="browse" aria-labelledby="browse-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2 id="browse-title">作品浏览</h2>
+          <p>按题材筛选或直接搜索作品名，结果即时显示在下方列表。</p>
+        </div>
+        <a class="more" href="#how">怎么看更省时间 →</a>
+      </div>
+
+      <div class="toolbar" role="group" aria-label="筛选与搜索">
+        <button class="chip" type="button" data-filter="全部" aria-pressed="true">全部</button>
+        <button class="chip" type="button" data-filter="爽文逆袭" aria-pressed="false">爽文逆袭</button>
+        <button class="chip" type="button" data-filter="都市日常" aria-pressed="false">都市日常</button>
+        <button class="chip" type="button" data-filter="幻想冒险" aria-pressed="false">幻想冒险</button>
+        <div class="search">
+          <label for="q" style="position:absolute;left:-9999px">搜索作品名</label>
+          <input id="q" type="search" placeholder="搜索作品名或关键词" autocomplete="off">
+          <button type="button" id="qBtn">查找</button>
+        </div>
+      </div>
+
+      <p class="count-hint" id="countHint" aria-live="polite">当前显示 6 部作品</p>
+
+      <div class="grid-2" id="workList">
+
+        <article class="work" data-cat="爽文逆袭" data-name="逆风翻盘的第九十九话 爽文 逆袭">
+          <div class="cover" aria-hidden="true">
+            <svg viewBox="0 0 96 128"><rect width="96" height="128" fill="#2a2740"/><circle cx="48" cy="46" r="24" fill="#ff5d73"/><path d="M40 36v20l16-10z" fill="#1b1929"/><rect x="18" y="88" width="60" height="7" rx="3.5" fill="#4a465e"/><rect x="18" y="102" width="40" height="7" rx="3.5" fill="#3a3750"/></svg>
+          </div>
+          <div>
+            <h3>逆风翻盘的第九十九话</h3>
+            <p class="meta">爽文逆袭 · 已更新 99 话 · 单话约 3 分钟</p>
+            <p>主角在旧城开了一间修表铺，每一话处理一桩麻烦，节奏紧凑、单话收束，适合通勤路上连看几话。</p>
+            <div class="foot"><span class="tag hot">连载热播</span><span class="tag">竖屏条漫改</span></div>
+          </div>
+        </article>
+
+        <article class="work" data-cat="都市日常" data-name="楼下便利店的深夜档 都市 日常">
+          <div class="cover" aria-hidden="true">
+            <svg viewBox="0 0 96 128"><rect width="96" height="128" fill="#2a2740"/><circle cx="48" cy="46" r="24" fill="#2fa39a"/><rect x="34" y="38" width="28" height="16" rx="4" fill="#1b1929"/><rect x="18" y="88" width="60" height="7" rx="3.5" fill="#4a465e"/><rect x="18" y="102" width="46" height="7" rx="3.5" fill="#3a3750"/></svg>
+          </div>
+          <div>
+            <h3>楼下便利店的深夜档</h3>
+            <p class="meta">都市日常 · 已更新 46 话 · 单话约 2 分半</p>
+            <p>夜班店员与熟客之间的短故事，几乎没有主线负担，适合想随手看一话、不追长线的观众。</p>
+            <div class="foot"><span class="tag">单元故事</span><span class="tag new">新话已更</span></div>
+          </div>
+        </article>
+
+        <article class="work" data-cat="幻想冒险" data-name="雾海航线手记 幻想 冒险">
+          <div class="cover" aria-hidden="true">
+            <svg viewBox="0 0 96 128"><rect width="96" height="128" fill="#2a2740"/><circle cx="48" cy="46" r="24" fill="#ffb347"/><path d="M30 52c8-12 28-12 36 0" stroke="#1b1929" stroke-width="5" fill="none"/><rect x="18" y="88" width="60" height="7" rx="3.5" fill="#4a465e"/><rect x="18" y="102" width="52" height="7" rx="3.5" fill="#3a3750"/></svg>
+          </div>
+          <div>
+            <h3>雾海航线手记</h3>
+            <p class="meta">幻想冒险 · 已更新 61 话 · 单话约 4 分钟</p>
+            <p>船员在雾中记录航线见闻，画面偏手绘风格，分集之间留有小伏笔，适合一次连看三到五话。</p>
+            <div class="foot"><span class="tag">连载中</span><span class="tag">手绘风</span></div>
+          </div>
+        </article>
+
+        <article class="work" data-cat="爽文逆袭" data-name="开局一间小面馆 爽文 逆袭">
+          <div class="cover" aria-hidden="true">
+            <svg viewBox="0 0 96 128"><rect width="96" height="128" fill="#2a2740"/><circle cx="48" cy="46" r="24" fill="#ff5d73"/><rect x="36" y="30" width="24" height="32" rx="6" fill="#1b1929"/><rect x="18" y="88" width="60" height="7" rx="3.5" fill="#4a465e"/><rect x="18" y="102" width="38" height="7" rx="3.5" fill="#3a3750"/></svg>
+          </div>
+          <div>
+            <h3>开局一间小面馆</h3>
+            <p class="meta">爽文逆袭 · 已更新 128 话 · 单话约 3 分钟</p>
+            <p>小店主一步步做出招牌菜的成长线，每话有明确的小目标，追更时不容易断片。</p>
+            <div class="foot"><span class="tag">长线连载</span><span class="tag">单元推进</span></div>
+          </div>
+        </article>
+
+        <article class="work" data-cat="都市日常" data-name="合租室友的作息表 都市 日常">
+          <div class="cover" aria-hidden="true">
+            <svg viewBox="0 0 96 128"><rect width="96" height="128" fill="#2a2740"/><circle cx="48" cy="46" r="24" fill="#2fa39a"/><path d="M38 34h20v6H38zM36 46h24v6H36zM40 58h16v6H40z" fill="#1b1929"/><rect x="18" y="88" width="60" height="7" rx="3.5" fill="#4a465e"/><rect x="18" y="102" width="42" height="7" rx="3.5" fill="#3a3750"/></svg>
+          </div>
+          <div>
+            <h3>合租室友的作息表</h3>
+            <p class="meta">都市日常 · 已更新 33 话 · 单话约 2 分钟</p>
+            <p>两位作息完全错开的室友，用一张贴在冰箱上的表串联剧情，轻松向、篇幅短。</p>
+            <div class="foot"><span class="tag">轻松向</span><span class="tag new">新话已更</span></div>
+          </div>
+        </article>
+
+        <article class="work" data-cat="幻想冒险" data-name="借来的半小时 幻想 冒险">
+          <div class="cover" aria-hidden="true">
+            <svg viewBox="0 0 96 128"><rect width="96" height="128" fill="#2a2740"/><circle cx="48" cy="46" r="24" fill="#ffb347"/><path d="M48 32v14l10 6" stroke="#1b1929" stroke-width="5" fill="none" stroke-linecap="round"/><rect x="18" y="88" width="60" height="7" rx="3.5" fill="#4a465e"/><rect x="18" y="102" width="48" height="7" rx="3.5" fill="#3a3750"/></svg>
+          </div>
+          <div>
+            <h3>借来的半小时</h3>
+            <p class="meta">幻想冒险 · 已更新 25 话 · 单话约 3 分半</p>
+            <p>每次只能多出半小时的设定，让每话都围绕一个具体选择展开，适合喜欢小巧设定的读者。</p>
+            <div class="foot"><span class="tag">设定向</span><span class="tag">短篇</span></div>
+          </div>
+        </article>
+
+      </div>
+      <div class="empty" id="emptyTip" hidden>没有匹配的作品，换个题材或缩短关键词再试一次。</div>
+    </div>
+  </section>
+
+  <!-- How -->
+  <section id="how" aria-labelledby="how-title" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2 id="how-title">抖漫在线看的三步观看路径</h2>
+          <p>把「找作品」和「接上一话」拆成两步，能明显减少来回翻找。</p>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <h3>先按题材缩范围</h3>
+          <p>爽文逆袭、都市日常、幻想冒险三类覆盖了抖漫常见的短篇题材。如果只记得大概剧情，用搜索框输入作品名里的关键词更快。</p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <h3>看单话时长再决定</h3>
+          <p>每部作品的卡片上都标注了单话时长与已更新话数。两三分钟一话适合碎片时间，四分钟以上更适合在家一次连看。</p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <h3>记住话数接着看</h3>
+          <p>抖漫在线看以话为单位组织内容，看到第几话记下来，下次直接从该话继续，不必从头回看。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2 id="faq-title">常见问答</h2>
+          <p>关于抖漫在线看的观看方式与内容范围。</p>
+        </div>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>抖漫在线看主要是什么内容？</summary>
+          <p>以竖屏条漫改编的短篇动画为主，单话篇幅短、剧情推进快，题材集中在爽文逆袭、都市日常与幻想冒险三类，适合用零散时间逐话观看。</p>
+        </details>
+        <details>
+          <summary>没有从头看，能直接接上连载吗？</summary>
+          <p>可以。抖漫在线看按话数组织内容，每一话基本在内部完成一个小事件的收束，从中间插入也不容易看不懂；只要记住当前话数，下次从该话继续即可。</p>
+        </details>
+        <details>
+          <summary>作品列表里的更新话数和时长准确吗？</summary>
+          <p>卡片上的话数与单话时长是编辑浏览时记录的信息，用于帮助判断篇幅与追更成本。连载作品会持续更新，实际话数以作品页显示为准。</p>
+        </details>
+        <details>
+          <summary>怎么快速找到想看的作品？</summary>
+          <p>先点题材标签缩小范围，再在搜索框输入作品名中的关键词。两者可以叠加使用，筛选结果会实时显示数量。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download -->
+  <section id="download">
+    <div class="wrap">
+      <div class="dl">
+        <div>
+          <h2>抖漫在线看客户端</h2>
+          <p>客户端把已看话数与作品书签集中管理，适合固定追几部连载的观众。安装包与版本信息将在正式发布时同步到这里。</p>
+          <a class="btn-dl" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#231a09" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M4 20h16"/></svg>
+            下载
+          </a>
+          <p class="dl-note">当前为占位入口，下载地址暂未提供。</p>
+        </div>
+        <div class="dl-art" aria-hidden="true">
+          <svg viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg">
+            <rect x="60" y="18" width="180" height="184" rx="18" fill="#2a2740" stroke="#4a465e"/>
+            <rect x="78" y="38" width="144" height="86" rx="10" fill="#ff5d73" opacity=".85"/>
+            <path d="M140 66v30l26-15z" fill="#1b1929"/>
+            <rect x="78" y="138" width="144" height="9" rx="4.5" fill="#4a465e"/>
+            <rect x="78" y="156" width="98" height="9" rx="4.5" fill="#3a3750"/>
+            <rect x="78" y="176" width="70" height="9" rx="4.5" fill="#3a3750"/>
+            <circle cx="236" cy="44" r="12" fill="#ffb347"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <span class="mark" style="width:28px;height:28px;border-radius:8px;background:linear-gradient(140deg,#ff5d73,#ffb347);display:grid;place-items:center" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="14" height="14"><path d="M9 6v12l10-6z" fill="#231a09"/></svg>
+          </span>
+          抖漫在线看
+        </div>
+        <p style="font-size:13.5px;margin:10px 0 0;max-width:34ch;color:#8f8b9d">短篇国漫按话浏览，题材筛选与作品搜索集中在同一页。抖漫在线看，接着上一话继续看。</p>
+      </div>
+      <nav class="foot-links" aria-label="页尾导航">
+        <a href="#browse">作品浏览</a>
+        <a href="#how">怎么看</a>
+        <a href="#faq">常见问答</a>
+        <a href="#download">客户端</a>
+      </nav>
+    </div>
+    <div class="copy">
+      <span>© 2025 抖漫在线看 · 页面内容为浏览与检索用途</span>
+      <span>作品信息以页面实时显示为准</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var chips = document.querySelectorAll('.chip');
+  var works = Array.prototype.slice.call(document.querySelectorAll('#workList .work'));
+  var q = document.getElementById('q');
+  var qBtn = document.getElementById('qBtn');
+  var hint = document.getElementById('countHint');
+  var empty = document.getElementById('emptyTip');
+  var activeCat = '全部';
+
+  function apply(){
+    var kw = (q.value || '').trim().toLowerCase();
+    var shown = 0;
+    works.forEach(function(w){
+      var catOk = activeCat === '全部' || w.getAttribute('data-cat') === activeCat;
+      var nameText = (w.getAttribute('data-name') + ' ' + w.textContent).toLowerCase();
+      var kwOk = !kw || nameText.indexOf(kw) !== -1;
+      var ok = catOk && kwOk;
+      w.style.display = ok ? '' : 'none';
+      if(ok) shown++;
+    });
+    hint.textContent = '当前显示 ' + shown + ' 部作品';
+    empty.hidden = shown !== 0;
+  }
+
+  chips.forEach(function(c){
+    c.addEventListener('click', function(){
+      chips.forEach(function(x){ x.setAttribute('aria-pressed','false'); });
+      c.setAttribute('aria-pressed','true');
+      activeCat = c.getAttribute('data-filter');
+      apply();
+    });
+  });
+
+  qBtn.addEventListener('click', apply);
+  q.addEventListener('input', apply);
+  q.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); apply(); } });
+})();
+</script>
+
+</body>
+              </html>
